@@ -6,5 +6,19 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js'
+  },
+  module: {
+    rules: [
+        {
+          use: 'babel-loader',
+          test: /\.js$/,
+          exclude: /mode_modules/
+        },
+        // only using css loader here
+        {
+          use: ['style-loader', 'css-loader'],
+          test: /\.css$/
+        }
+    ]
   }
 };
